@@ -84,4 +84,8 @@ declare global {
         // on webkit: we should check if we still need to do this
         webkitGetUserMedia: DummyInterfaceWeShouldntBeUsingThis;
     }
+
+    interface Window {
+        mxLogEventStats: () => void;
+    }
 }

@@ -20,7 +20,7 @@ limitations under the License.
 
 import {MemoryStore} from "./memory";
 import * as utils from "../utils";
-import {EventEmitter} from 'events';
+import MeasuredEventEmitter from "../emitter-performance";
 import {LocalIndexedDBStoreBackend} from "./indexeddb-local-backend.js";
 import {RemoteIndexedDBStoreBackend} from "./indexeddb-remote-backend.js";
 import {User} from "../models/user";
@@ -114,7 +114,7 @@ export function IndexedDBStore(opts) {
     };
 }
 utils.inherits(IndexedDBStore, MemoryStore);
-utils.extend(IndexedDBStore.prototype, EventEmitter.prototype);
+utils.extend(IndexedDBStore.prototype, MeasuredEventEmitter.prototype);
 
 IndexedDBStore.exists = function(indexedDB, dbName) {
     return LocalIndexedDBStoreBackend.exists(indexedDB, dbName);

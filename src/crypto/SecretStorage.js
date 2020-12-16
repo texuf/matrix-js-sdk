@@ -14,7 +14,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import {EventEmitter} from 'events';
 import {logger} from '../logger';
 import * as olmlib from './olmlib';
 import {randomString} from '../randomstring';
@@ -30,9 +29,8 @@ const ZERO_STR = "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0
  * Implements Secure Secret Storage and Sharing (MSC1946)
  * @module crypto/SecretStorage
  */
-export class SecretStorage extends EventEmitter {
+export class SecretStorage {
     constructor(baseApis, cryptoCallbacks) {
-        super();
         this._baseApis = baseApis;
         this._cryptoCallbacks = cryptoCallbacks;
         this._requests = {};

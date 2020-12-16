@@ -21,7 +21,7 @@ limitations under the License.
  */
 
 import {MatrixEvent} from '../../models/event';
-import {EventEmitter} from 'events';
+import MeasuredEventEmitter from "../../emitter-performance";
 import {logger} from '../../logger';
 import {DeviceInfo} from '../deviceinfo';
 import {newTimeoutError} from "./Error";
@@ -36,7 +36,7 @@ export class SwitchStartEventError extends Error {
     }
 }
 
-export class VerificationBase extends EventEmitter {
+export class VerificationBase extends MeasuredEventEmitter {
     /**
      * Base class for verification methods.
      *

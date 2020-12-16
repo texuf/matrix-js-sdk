@@ -22,7 +22,7 @@ limitations under the License.
  */
 
 import anotherjson from "another-json";
-import {EventEmitter} from 'events';
+import MeasuredEventEmitter from "../emitter-performance";
 import {ReEmitter} from '../ReEmitter';
 import {logger} from '../logger';
 import * as utils from "../utils";
@@ -254,7 +254,7 @@ export function Crypto(baseApis, sessionStore, userId, deviceId,
         };
     }
 }
-utils.inherits(Crypto, EventEmitter);
+utils.inherits(Crypto, MeasuredEventEmitter);
 
 /**
  * Initialise the crypto module so that it is ready for use

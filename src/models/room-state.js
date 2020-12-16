@@ -19,7 +19,7 @@ limitations under the License.
  * @module models/room-state
  */
 
-import {EventEmitter} from "events";
+import MeasuredEventEmitter from "../emitter-performance";
 import {RoomMember} from "./room-member";
 import {logger} from '../logger';
 import * as utils from "../utils";
@@ -99,7 +99,7 @@ export function RoomState(roomId, oobMemberFlags = undefined) {
     }
     this._oobMemberFlags = oobMemberFlags;
 }
-utils.inherits(RoomState, EventEmitter);
+utils.inherits(RoomState, MeasuredEventEmitter);
 
 /**
  * Returns the number of joined members in this room

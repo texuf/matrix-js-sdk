@@ -22,7 +22,7 @@ limitations under the License.
  */
 
 import {logger} from '../logger';
-import {EventEmitter} from 'events';
+import MeasuredEventEmitter from "../emitter-performance";
 import * as utils from '../utils';
 import MatrixEvent from '../models/event';
 import {EventType} from '../@types/event';
@@ -226,7 +226,7 @@ function genCallID(): string {
  * @param {Array<Object>} opts.turnServers Optional. A list of TURN servers.
  * @param {MatrixClient} opts.client The Matrix Client instance to send events to.
  */
-export class MatrixCall extends EventEmitter {
+export class MatrixCall extends MeasuredEventEmitter {
     roomId: string;
     type: CallType;
     callId: string;

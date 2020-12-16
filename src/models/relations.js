@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import {EventEmitter} from 'events';
+import MeasuredEventEmitter from "../emitter-performance";
 import {EventStatus} from '../models/event';
 import {logger} from '../logger';
 
@@ -26,7 +26,7 @@ import {logger} from '../logger';
  * The typical way to get one of these containers is via
  * EventTimelineSet#getRelationsForEvent.
  */
-export class Relations extends EventEmitter {
+export class Relations extends MeasuredEventEmitter {
     /**
      * @param {String} relationType
      * The type of relation involved, such as "m.annotation", "m.reference",

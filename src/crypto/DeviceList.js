@@ -22,7 +22,7 @@ limitations under the License.
  * Manages the list of other users' devices
  */
 
-import {EventEmitter} from 'events';
+import MeasuredEventEmitter from "../emitter-performance";
 import {logger} from '../logger';
 import {DeviceInfo} from './deviceinfo';
 import {CrossSigningInfo} from './CrossSigning';
@@ -61,7 +61,7 @@ const TRACKING_STATUS_UP_TO_DATE = 3;
 /**
  * @alias module:crypto/DeviceList
  */
-export class DeviceList extends EventEmitter {
+export class DeviceList extends MeasuredEventEmitter {
     constructor(baseApis, cryptoStore, olmDevice) {
         super();
 

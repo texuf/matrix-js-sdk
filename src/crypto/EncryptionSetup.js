@@ -1,6 +1,6 @@
 import { logger } from "../logger";
 import {MatrixEvent} from "../models/event";
-import {EventEmitter} from "events";
+import MeasuredEventEmitter from "../emitter-performance";
 import {createCryptoStoreCacheCallbacks} from "./CrossSigning";
 import {IndexedDBCryptoStore} from './store/indexeddb-crypto-store';
 import {
@@ -230,7 +230,7 @@ export class EncryptionSetupOperation {
  * Catches account data set by SecretStorage during bootstrapping by
  * implementing the methods related to account data in MatrixClient
  */
-class AccountDataClientAdapter extends EventEmitter {
+class AccountDataClientAdapter extends MeasuredEventEmitter {
     /**
      * @param  {Object.<String, MatrixEvent>} accountData existing account data
      */

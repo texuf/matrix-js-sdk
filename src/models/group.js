@@ -20,7 +20,7 @@ limitations under the License.
  */
 
 import * as utils from "../utils";
-import {EventEmitter} from "events";
+import MeasuredEventEmitter from "../emitter-performance";
 
 /**
  * Construct a new Group.
@@ -42,7 +42,7 @@ export function Group(groupId) {
     this.myMembership = null;
     this.inviter = null;
 }
-utils.inherits(Group, EventEmitter);
+utils.inherits(Group, MeasuredEventEmitter);
 
 Group.prototype.setProfile = function(name, avatarUrl) {
     if (this.name === name && this.avatarUrl === avatarUrl) return;

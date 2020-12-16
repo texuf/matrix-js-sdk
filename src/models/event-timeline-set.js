@@ -19,7 +19,7 @@ limitations under the License.
  * @module models/event-timeline-set
  */
 
-import {EventEmitter} from "events";
+import MeasuredEventEmitter from "../emitter-performance";
 import {EventTimeline} from "./event-timeline";
 import {EventStatus} from "./event";
 import * as utils from "../utils";
@@ -92,7 +92,7 @@ export function EventTimelineSet(room, opts) {
         this._relations = {};
     }
 }
-utils.inherits(EventTimelineSet, EventEmitter);
+utils.inherits(EventTimelineSet, MeasuredEventEmitter);
 
 /**
  * Get all the timelines in this set

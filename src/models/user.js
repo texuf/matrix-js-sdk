@@ -20,7 +20,7 @@ limitations under the License.
  */
 
 import * as utils from "../utils";
-import {EventEmitter} from "events";
+import MeasuredEventEmitter from "../emitter-performance";
 
 /**
  * Construct a new User. A User must have an ID and can optionally have extra
@@ -64,7 +64,7 @@ export function User(userId) {
     };
     this._updateModifiedTime();
 }
-utils.inherits(User, EventEmitter);
+utils.inherits(User, MeasuredEventEmitter);
 
 /**
  * Update this User with the given presence event. May fire "User.presence",

@@ -16,7 +16,7 @@ limitations under the License.
 */
 
 import {logger} from '../../../logger';
-import {EventEmitter} from 'events';
+import MeasuredEventEmitter from "../../../emitter-performance";
 import {
     errorFactory,
     errorFromEvent,
@@ -59,7 +59,7 @@ export const PHASE_DONE = 6;
  * send and receive verification events are put in `InRoomChannel` or `ToDeviceChannel`.
  * @event "change" whenever the state of the request object has changed.
  */
-export class VerificationRequest extends EventEmitter {
+export class VerificationRequest extends MeasuredEventEmitter {
     constructor(channel, verificationMethods, client) {
         super();
         this.channel = channel;

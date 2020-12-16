@@ -20,7 +20,7 @@ limitations under the License.
  * @module models/room
  */
 
-import {EventEmitter} from "events";
+import MeasuredEventEmitter from "../emitter-performance";
 import {EventTimelineSet} from "./event-timeline-set";
 import {EventTimeline} from "./event-timeline";
 import {getHttpUriForMxc} from "../content-repo";
@@ -205,7 +205,7 @@ export function Room(roomId, client, myUserId, opts) {
     }
 }
 
-utils.inherits(Room, EventEmitter);
+utils.inherits(Room, MeasuredEventEmitter);
 
 /**
  * Gets the version of the room

@@ -21,7 +21,6 @@ limitations under the License.
  */
 
 import {decodeBase64, encodeBase64, pkSign, pkVerify} from './olmlib';
-import {EventEmitter} from 'events';
 import {logger} from '../logger';
 import {IndexedDBCryptoStore} from '../crypto/store/indexeddb-crypto-store';
 import {decryptAES, encryptAES} from './aes';
@@ -35,7 +34,7 @@ function publicKeyFromKeyInfo(keyInfo) {
     return Object.values(keyInfo.keys)[0];
 }
 
-export class CrossSigningInfo extends EventEmitter {
+export class CrossSigningInfo {
     /**
      * Information about a user's cross-signing keys
      *
@@ -47,8 +46,6 @@ export class CrossSigningInfo extends EventEmitter {
      * @param {object} cacheCallbacks Callbacks used to interact with the cache
      */
     constructor(userId, callbacks, cacheCallbacks) {
-        super();
-
         // you can't change the userId
         Object.defineProperty(this, 'userId', {
             enumerable: true,

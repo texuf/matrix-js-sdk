@@ -19,7 +19,7 @@ limitations under the License.
  * @module models/room-member
  */
 
-import {EventEmitter} from "events";
+import MeasuredEventEmitter from "../emitter-performance";
 import {getHttpUriForMxc} from "../content-repo";
 import * as utils from "../utils";
 
@@ -62,7 +62,7 @@ export function RoomMember(roomId, userId) {
     this._isOutOfBand = false;
     this._updateModifiedTime();
 }
-utils.inherits(RoomMember, EventEmitter);
+utils.inherits(RoomMember, MeasuredEventEmitter);
 
 /**
  * Mark the member as coming from a channel that is not sync

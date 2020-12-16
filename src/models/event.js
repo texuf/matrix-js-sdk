@@ -21,7 +21,7 @@ limitations under the License.
  * @module models/event
  */
 
-import {EventEmitter} from 'events';
+import MeasuredEventEmitter from "../emitter-performance";
 import * as utils from '../utils';
 import {logger} from '../logger';
 
@@ -178,7 +178,7 @@ export const MatrixEvent = function(
      */
     this._localTimestamp = Date.now() - this.getAge();
 };
-utils.inherits(MatrixEvent, EventEmitter);
+utils.inherits(MatrixEvent, MeasuredEventEmitter);
 
 
 utils.extend(MatrixEvent.prototype, {

@@ -24,7 +24,7 @@ limitations under the License.
  */
 
 import url from "url";
-import {EventEmitter} from "events";
+import MeasuredEventEmitter from "./emitter-performance";
 import {MatrixBaseApis} from "./base-apis";
 import {Filter} from "./filter";
 import {SyncApi} from "./sync";
@@ -474,7 +474,7 @@ export function MatrixClient(opts) {
         }
     });
 }
-utils.inherits(MatrixClient, EventEmitter);
+utils.inherits(MatrixClient, MeasuredEventEmitter);
 utils.extend(MatrixClient.prototype, MatrixBaseApis.prototype);
 
 /**
