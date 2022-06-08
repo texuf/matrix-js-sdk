@@ -41,7 +41,7 @@ export const isTimestampInDuration = (
     startTimestamp: number,
     durationMs: number,
     timestamp: number,
-): boolean => timestamp >= startTimestamp && startTimestamp + durationMs >= timestamp;
+): boolean => /* timestamp >= startTimestamp && */ startTimestamp + durationMs >= timestamp;
 
 // beacon info events are uniquely identified by
 // `<roomId>_<state_key>`
